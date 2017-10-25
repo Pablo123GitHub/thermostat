@@ -41,6 +41,13 @@ Thermostat.prototype.reset = function() {
   this.temperature = 20;
 }
 
+Thermostat.prototype.getCurrentTemperature = function(){
+  return this.temperature;
+}
+
+
+
+
 Thermostat.prototype.energyUsage = function() {
   if (this.temperature < this.LOW_USAGE_LIMIT) return 'low-usage';
   if (this.temperature < this.HIG_USAGE_LIMIT) return 'medium-usage';

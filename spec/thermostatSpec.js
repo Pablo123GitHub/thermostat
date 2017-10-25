@@ -9,6 +9,10 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(20);
   });
 
+  it('starts at 20 degrees', function() {
+  expect(thermostat.getCurrentTemperature()).toEqual(20);
+});
+
   it("should raise the temperature by 1", function() {
     thermostat.upTemperature();
     expect(thermostat.temperature).toEqual(21);
