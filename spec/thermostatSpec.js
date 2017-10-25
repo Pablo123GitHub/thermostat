@@ -40,7 +40,7 @@ describe("Thermostat", function() {
     for (var i = 0; i < 5; i++) {
       thermostat.upTemperature();
     };
-    var overTwentyFive = function () {
+    var overTwentyFive = function() {
       thermostat.upTemperature();
     };
     expect(overTwentyFive).toThrowError("temperature cannot go beyond 25 on PowerSavingMode");
@@ -57,7 +57,7 @@ describe("Thermostat", function() {
     expect(thermostat.temperature).toEqual(26);
   });
 
-  it('temperature throws an error message when it goes over 32 and powerSavingMode is OFF', function(){
+  it('temperature throws an error message when it goes over 32 and powerSavingMode is OFF', function() {
     thermostat.setOffSavingMode();
     for (var i = 0; i < 12; i++) {
       thermostat.upTemperature();
@@ -69,5 +69,38 @@ describe("Thermostat", function() {
 
   });
 
+  it('set the temperature to 20 with a reset function', function(){
+    thermostat.setOffSavingMode();
+    for (var i = 0; i < 12; i++) {
+      thermostat.upTemperature();
+    };
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20);
+  });
+
+  it('sets energy usage to low-usage when <18', function(){
+    for (var i = 0; i < 4; i++) {
+      thermostat.downTemperature();
+    }
+    expect(thermostat.energyUsage()).toEqual("low-usage");
+
+  });
+
+  it('sets energy usage to medium-usage when >18 and <25', function(){
+    for (var i = 0; i < 4; i++) {
+      thermostat.upTemperature();
+    };
+    expect(thermostat.energyUsage()).toEqual("medium-usage");
+
+  });
+
+  it('sets energy usage to high-usage when >25', function(){
+    for (var i = 0; i < 5; i++) {
+      thermostat.upTemperature();
+    };
+    console.log(thermostat.temperature)
+    expect(thermostat.energyUsage()).toEqual("high-usage");
+
+  });
 
 });
