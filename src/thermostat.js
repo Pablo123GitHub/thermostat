@@ -4,6 +4,7 @@ function Thermostat() {
   this.setSavingMode();
   this.LOW_USAGE_LIMIT = 18 ;
   this.HIG_USAGE_LIMIT = 25;
+  this.DEFAULT_TEMPERATURE = 20
 
 
 }
