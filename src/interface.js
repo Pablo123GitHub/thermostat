@@ -28,8 +28,11 @@ $(document).ready(function() {
     var units = '&units=metric';
     $.get(url + token + units, function(data) {
       $('#current-temperature').text(data.main.temp);
+      $('#selected-city').text(city.substr(0,1).toUpperCase()+city.substr(1));
     })
+
   }
+
   displayWeather('london');
 
   console.log($('#select-city'))

@@ -9,3 +9,13 @@
 .high-usage {
   color: red;
 }
+
+
+#selected-city {
+  background: #007bff;
+}
+/*#main {
+  max-width: 600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}*/
